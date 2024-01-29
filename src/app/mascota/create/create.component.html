@@ -1,0 +1,141 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form [formGroup]="mascotaForm" (ngSubmit)="agregarMascota()" action="" class="form-ficha example-form" id="formenfermedad">
+        <title>Registrar Mascota</title>
+        <h1>Informacion de la Mascota </h1>
+
+        <div id="mascotadiv">
+            <p>Nombre de la Mascota</p>
+            <mat-form-field class="example-form-field">
+                <input formControlName="Nombre_Mascota" matInput type="text" name="Nombre_Mascota">
+                <button matSuffix mat-icon-button aria-label="Clear" (click)="''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field><br>
+            <p>Edad</p>
+
+            <mat-form-field class="example-form-field">
+                <input formControlName="Edad" matInput type="number" name="Edad">
+                <button matSuffix mat-icon-button aria-label="Clear" (click)="''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field><br>
+            <p>Raza</p>
+
+            <mat-form-field class="example-form-field">
+                <input formControlName="Raza" matInput type="text" name="Raza">
+                <button matSuffix mat-icon-button aria-label="Clear" (click)="''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field><br>
+            <p>Peso</p>
+
+            <mat-form-field class="example-form-field">
+                <input formControlName="Peso" matInput type="number" name="Peso">
+                <button matSuffix mat-icon-button aria-label="Clear" (click)="''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field><br>
+
+            <p>Tamaño</p>
+
+            <mat-form-field class="example-form-field">
+                <input formControlName="Tamano" matInput type="number" name="Tamano">
+                <button matSuffix mat-icon-button aria-label="Clear" (click)="''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field><br>
+
+            <p>Sexo</p>
+
+            <mat-form-field class="example-form-field">
+                <input formControlName="Sexo" matInput type="text" name="Sexo">
+                <button matSuffix mat-icon-button aria-label="Clear" (click)="''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field><br>
+
+            <div>{{listatipomascota[0]}}</div>
+
+            <select formControlName="id_tipomascota" class="form-control">
+                <option *ngFor="let tipomascota of listatipomascota"  [value]="tipomascota.id">{{tipomascota.Tipo_mascota}}</option>
+            </select>
+
+
+<br>
+<br>
+<br>
+        </div>
+
+        <button mat-raised-button color="primary">Crear</button>
+    </form>
+</body>
+
+</html>
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Mascota</title>
+</head>
+
+<body>
+    <form [formGroup]="mascotaForm" (ngSubmit)="agregarMascota()" id="formenfermedad" onsubmit="return false;">
+        <h1>Informacion de la Mascota </h1>
+
+        <div id="mascotadiv">
+            <p>Nombre de la Mascota</p>
+            <input formControlName="Nombre_Mascota" type="text" name="Nombre_Mascota" required><br>
+
+            <p>Edad</p>
+            <input formControlName="Edad" type="number" name="Edad" required><br>
+
+            <p>Raza</p>
+            <input formControlName="Raza" type="text" name="Raza" required><br>
+
+            <p>Peso</p>
+            <input formControlName="Peso" type="number" name="Peso" required><br>
+
+            <p>Tamaño</p>
+            <input formControlName="Tamano" type="number" name="Tamano" required><br>
+
+            <p>Sexo</p>
+            <input formControlName="Sexo" type="text" name="Sexo" required><br>
+
+            <div>{{listatipomascota[0]}}</div>
+
+            <select formControlName="id_tipomascota" class="form-control">
+                <option value="" disabled selected>Select Tipo de Mascota</option>
+                <option *ngFor="let tipomascota of listatipomascota" [value]="tipomascota.id">{{tipomascota.Tipo_Mascota}}</option>
+            </select>
+
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <button type="submit">Crear</button>
+    </form>
+
+    <script>
+        // Aquí puedes agregar la lógica necesaria para Angular, si es necesario.
+        // Ten en cuenta que esta parte será mínima, ya que Angular generalmente manejará el formulario.
+    </script>
+</body>
+
+</html>

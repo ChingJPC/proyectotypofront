@@ -1,0 +1,31 @@
+<a href="/mascota/create">Añadir Mascota</a>
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre de la Mascota</th>
+        <th>Edad</th>
+        <th>Raza</th>
+        <th>Peso</th>
+        <th>Tamaño</th>
+        <th>Sexo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mascota of listaMascotas">
+        <td>{{mascota.id}}</td>
+        <td>{{mascota.Nombre_Mascota}}</td>
+        <td>{{mascota.Edad}}</td>
+        <td>{{mascota.Raza}}</td>
+        <td>{{mascota.Peso}}</td>
+        <td>{{mascota.Tamano}}</td>
+        <td>{{mascota.Sexo}}</td>
+
+        <td>
+          <button type="button" id="bor" (click)="eliminarMascota(mascota.id)">Eliminar</button>
+          <button type="button" id="eli" (click)="editarMascota(mascota.id)">Editar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

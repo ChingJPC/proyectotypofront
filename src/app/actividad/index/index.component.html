@@ -1,0 +1,28 @@
+<button class="btn btn-dark"><a href="/actividad/create">Agregar Actividad</a></button>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>Actividades felinos</td>
+                <td>Actividades caninos</td>
+                <td>Actividades aves</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ap of listaActiviadades">
+                <td>{{ap.id}} </td>
+                <td>{{ap.actividades_felinos}}</td>
+                <td>{{ap.actividades_canidos}}</td>
+                <td>{{ap.actividades_aves}}</td>
+
+                <td>
+                    <button type="button" (click)="eliminarActividad(ap.id)">Eliminar</button>
+                </td>
+                <td>
+                    <button type="button" (click)="editarActividad(ap.id)">Editar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

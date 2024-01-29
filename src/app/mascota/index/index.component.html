@@ -1,14 +1,16 @@
-<a href="/mascota/create">Añadir Mascota</a>
-<table>
-    <thead>
+<div *ngIf="user_id">
+  <a class="btn btn-primary" href="/mascota/create/{{user_id}}">Añadir Mascota</a>
+  <table class="table">
+    <thead class="thead-dark">
       <tr>
         <th>ID</th>
         <th>Nombre de la Mascota</th>
         <th>Edad</th>
         <th>Raza</th>
         <th>Peso</th>
-        <th>Tamaño</th>
+        <!--<th>Tamaño</th>-->
         <th>Sexo</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -18,14 +20,19 @@
         <td>{{mascota.Edad}}</td>
         <td>{{mascota.Raza}}</td>
         <td>{{mascota.Peso}}</td>
-        <td>{{mascota.Tamano}}</td>
+
+        <!--<td>{{ mascota.Tama&ntilde;o }}</td>-->
         <td>{{mascota.Sexo}}</td>
 
         <td>
-          <button type="button" id="bor" (click)="eliminarMascota(mascota.id)">Eliminar</button>
-          <button type="button" id="eli" (click)="editarMascota(mascota.id)">Editar</button>
+          <button class="btn btn-danger" type="button" (click)="eliminarMascota(mascota.id)">Eliminar</button>
+          <button class="btn btn-warning" type="button" (click)="editarMascota(mascota.id)">Editar</button>
         </td>
       </tr>
     </tbody>
   </table>
-  
+</div>
+
+<div *ngIf="!user_id">
+  <h1>NO TIENE LOS PERMISOS DE ESTAR ACÁ</h1>
+</div>

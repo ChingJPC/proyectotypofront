@@ -12,9 +12,18 @@ export class tipomascotaService {
   constructor(private http:HttpClient){
   }
 
+  obtenerOptions(access_token:any):Object{
+    const headers = new HttpHeaders({
+      'Content-type' : 'application/json',
+      'Authorization' : 'Bearer ' + access_token
+    });
+    return {
+      'headers': headers
+    }
+  }
 
-  gettipoMascotas():Observable<any>{    
-    return this.http.get<any>(this.url,);
+  gettipoMascotas(access_token:any):Observable<any>{
+    return this.http.get<any>(this.url, this.obtenerOptions(access_token));
   }
 
   addtipoMascota(mascota:tipomascota):Observable<any>{

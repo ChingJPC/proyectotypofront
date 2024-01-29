@@ -27,22 +27,47 @@ export class CreateComponent {
     Edad: null,
     Raza:'',
     Peso:null,
-    Tamano:null,
+    Tamaño:null,
     Sexo:'',
-    user_id:null,
+    //user_id:null,
     id_tipomascota:null,
-    
+
   })
 
   id: string | null;
+  user_id: string | null;
+  clave: string | null = null;
   listatipomascota: tipomascota[]= [];
 
   constructor(private fb: FormBuilder, private _router: Router, private mascotasService: mascotaService, private aRoute: ActivatedRoute, private tipomascotaservice:tipomascotaService){
     this.id = this.aRoute.snapshot.paramMap.get('id');
+    this.user_id = this.aRoute.snapshot.paramMap.get('user_id');
+  }
+
+  ngOnInit(): void {
+    this.validarToken();
+    this.verEditar();
+    this.cargartipomascota();
+
+  }
+
+
+
+  validarToken(): void {
+    if (this.clave == null) {
+      this.clave = localStorage.getItem('access_token');
+    }
+    if (!this.clave) {
+      this._router.navigate(['/inicio/body']);
+    }
+
+    console.log(this.clave);
+
+
   }
 
   cargartipomascota(): void{
-    this.tipomascotaservice.gettipoMascotas().subscribe(
+    this.tipomascotaservice.gettipoMascotas(this.clave).subscribe(
       data=>{
         /*for (let index = 0; index < data.length; index++) {
           const element = data[index];
@@ -50,30 +75,27 @@ export class CreateComponent {
           this.listatipomascota[index].Tipo_mascota = element.Tipo_mascota
         }*/
         console.log(data);
-        
+
         this.listatipomascota = data;
       }, err => {console.log(err);}
     )
-    
-  }
-  ngOnInit(): void {
-    this.verEditar();
-    this.cargartipomascota();
 
   }
+
   verEditar(): void {
     if (this.id != null) {
-      this.mascotasService.getMascota(this.id).subscribe(
+      this.mascotasService.getMascota(this.id, this.clave).subscribe(
         data => {
+
           this.mascotaForm.setValue({
             Nombre_Mascota: data.Nombre_Mascota,
             Edad: data.Edad,
             Raza: data.Raza,
-            Peso:data.peso,
-            Tamano:data.Tamano,
+            Peso:data.Peso,
+            Tamaño:data.Tamaño,
             Sexo:data.Sexo,
-            user_id:data.user_id,
-            id_tipomascota:data.id.tipomascota
+            //user_id:Number(this.user_id),
+            id_tipomascota:data.id_tipomascota
           })
         },
         err => {
@@ -91,34 +113,36 @@ export class CreateComponent {
       Edad: this.mascotaForm.get('Edad')?.value!,
       Raza: this.mascotaForm.get('Raza')?.value,
       Peso:this.mascotaForm.get('Peso')?.value!,
-      Tamano:this.mascotaForm.get('Tamano')?.value!,
+      Tamaño:this.mascotaForm.get('Tamaño')?.value!,
       Sexo:this.mascotaForm.get('Sexo')?.value,
-      user_id:this.mascotaForm.get('user_id')?.value!,
+      user_id:Number(this.user_id!),
       id_tipomascota: this.mascotaForm.get('id_tipomascota')?.value!
     }
 
 
     console.log(mascota);
-    
+
     if (this.id != null) {
-      this.mascotasService.updateMascota(this.id, mascota).subscribe(
+      this.mascotasService.updateMascota(this.id, mascota, this.clave).subscribe(
         data => {
-          this._router.navigate(['/mascota/index']);
+          this._router.navigateByUrl("/mascota/index/" + this.user_id);
+
         },
         err => {
           console.log(err);
-          this._router.navigate(['/mascota/index']);
+          this._router.navigateByUrl("/mascota/index/" + this.user_id);
+
         }
       );
 
     } else {
-      this.mascotasService.addMascota(mascota).subscribe(data => {
+      this.mascotasService.addMascota(mascota, this.clave).subscribe(data => {
         console.log(data);
-        this._router.navigate(['/mascota/index']);
+        this._router.navigateByUrl("/mascota/index/" + this.user_id);
       },
         err => {
           console.log(err);
-          this._router.navigate(['/mascota/index']);
+          this._router.navigateByUrl("/mascota/index/" + this.user_id);
         }
       );
     }

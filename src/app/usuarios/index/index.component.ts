@@ -26,21 +26,21 @@ export class IndexComponent {
   validarToken(): void {
     if (this.clave==null) {
       this.clave = localStorage.getItem('access_token');
-    } 
-    if (!this.clave) {      
+    }
+    if (!this.clave) {
       this._router.navigate(['/inicio/body']);
     }
-    
+
   }
 
   cargarUsuarios(){
     this.usuarioService.getUsuarios(this.clave).subscribe(
-      
+
       data => {
       console.log(data);
 
         this.listaUsuarios = data;
-      }, 
+      },
       err => {
         console.log(err);
       });
@@ -55,8 +55,12 @@ export class IndexComponent {
       data => {
         this.cargarUsuarios();
       }, err => {
-        console.log(err);   
+        console.log(err);
       }
     );
+  }
+
+  verMascotas(id:any):void{
+    this._router.navigateByUrl('/mascota/index/'+id);
   }
 }

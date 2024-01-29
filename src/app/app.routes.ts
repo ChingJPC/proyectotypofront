@@ -11,15 +11,16 @@ export const routes: Routes = [
     { path: 'inicio/body', component: BodyComponent },
 
     { path: 'usuario/index', component: IndexUsuario},
-    
+
     { path: 'rol/index', component: IndexRol},
     { path: 'rol/index', component: IndexRol},
     { path: 'rol/index', component: IndexRol},
 
-    {path: 'mascota/index', component:IndexMascota},
+    {path: 'mascota/index/:id', component:IndexMascota},
 
-    {path: 'mascota/create', component: CreateMascota},
+    {path: 'mascota/create/:user_id', component: CreateMascota},
 
-    {path: 'mascota/editar/:id', component: CreateMascota },
+    {path: 'mascota/editar/:id/:user_id', component: CreateMascota },
+
 
 ];

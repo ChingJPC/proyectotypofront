@@ -12,24 +12,39 @@ export class mascotaService {
   constructor(private http:HttpClient){
   }
 
-
-  getMascotas():Observable<any>{    
-    return this.http.get<any>(this.url,);
+  obtenerOptions(access_token:any):Object{
+    const headers = new HttpHeaders({
+      'Content-type' : 'application/json',
+      'Authorization' : 'Bearer ' + access_token
+    });
+    return {
+      'headers': headers
+    }
   }
 
-  addMascota(mascota:Mascota):Observable<any>{
-    return this.http.post(this.url, mascota);
+
+
+  getMascotas(access_token:any):Observable<any>{
+    return this.http.get<any>(this.url, this.obtenerOptions(access_token));
   }
 
-  getMascota(id:string, ):Observable<any>{
-    return this.http.get(this.url+id);
+  addMascota(mascota:Mascota, access_token:any):Observable<any>{
+    return this.http.post(this.url, mascota, this.obtenerOptions(access_token));
   }
 
-  updateMascota(id:string, mascota:Mascota): Observable<any>{
-    return this.http.put(this.url+id, mascota);
+  getMascota(id:string, access_token:any):Observable<any>{
+    return this.http.get(this.url+id, this.obtenerOptions(access_token));
   }
 
-  deleteMascota(id:string): Observable<any>{
-    return this.http.delete(this.url+id);
+  updateMascota(id:string, mascota:Mascota, access_token:any): Observable<any>{
+    return this.http.put(this.url+id, mascota, this.obtenerOptions(access_token));
+  }
+
+  deleteMascota(id:string, access_token:any): Observable<any>{
+    return this.http.delete(this.url+id, this.obtenerOptions(access_token));
+  }
+
+  getMascotasByUserId(id:any, access_token:any) : Observable<any> {
+    return this.http.get(this.url+"user/"+id, this.obtenerOptions(access_token));
   }
 }

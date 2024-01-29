@@ -6,12 +6,12 @@
       <tr>
         <td>Id</td>
         <td>Nombre</td>
-        <td>Apellido</td> 
+        <td>Apellido</td>
         <td>Telefono</td>
         <td>Fecha de nacimiento</td>
         <td>email</td>
       </tr>
-           
+
     </thead>
     <tbody>
       <tr *ngFor="let ap of listaUsuarios">
@@ -22,13 +22,15 @@
         <td>{{ ap.fecha_nacimiento }}</td>
         <td>{{ ap.email }}</td>
         <td>
-            <!-- <button type="button" (click)="eliminarAprendiz(ap.id)">Eliminar</button> -->           
+            <button type="button" (click)="verMascotas(ap.id)">Ver mascotas</button>
         </td>
         <td>
-            <!-- <button type="button" (click)="editarAprendiz(ap.id)">Editar</button> -->        
+            <!-- <button type="button" (click)="eliminarAprendiz(ap.id)">Eliminar</button> ->
+        </td>
+        <td>
+            <!-- <button type="button" (click)="editarAprendiz(ap.id)">Editar</button> -->
         </td>
     </tr>
     </tbody>
-    
+
   </table>
-  

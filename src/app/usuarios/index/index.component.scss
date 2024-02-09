@@ -1,0 +1,42 @@
+.container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 20px auto; /* Margen para centrar el contenedor */
+  }
+  
+  table {
+    width: 100%; /* Ancho completo de la tabla */
+    border-collapse: collapse; /* Colapso de los bordes de la tabla */
+  }
+  
+  thead {
+    background-color: #f0f0f0; /* Color de fondo del encabezado de la tabla */
+  }
+  
+  th, td {
+    padding: 8px; /* Espaciado interno de las celdas de la tabla */
+    border: 1px solid #ddd; /* Borde de las celdas de la tabla */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* Color de fondo de las filas pares de la tabla */
+  }
+  
+  button {
+    padding: 8px 16px; /* Espaciado interno del botón */
+    border: none; /* Eliminar el borde del botón */
+    border-radius: 4px; /* Borde redondeado del botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    cursor: pointer; /* Cambio del cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave del color de fondo del botón */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Color de fondo del botón al pasar el ratón */
+  }
+  
+  p {
+    font-size: 24px; /* Tamaño de fuente del párrafo */
+    font-weight: bold; /* Texto en negrita */
+  }
+  

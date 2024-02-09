@@ -1,0 +1,29 @@
+.navbar {
+    background-color: #2980b9; // Color de fondo de la barra de navegación
+    border-bottom: 1px solid #000000; // Borde inferior de la barra de navegación
+    .navbar-brand {
+      color: #00b1f2; // Color del texto del enlace de la marca
+      font-size: 24px; // Tamaño del texto de la marca
+      &:hover {
+        color: #99c6f6; // Color del texto de la marca al pasar el ratón
+      }
+    }
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          color: #00b1f2; // Color del texto del enlace de navegación
+          font-size: 18px; // Tamaño del texto de los enlaces de navegación
+          &.active {
+            color: #00b1f2; // Color del texto del enlace activo
+          }
+          &:hover {
+            color: #99c6f6; // Color del texto del enlace al pasar el ratón
+          }
+        }
+      }
+    }
+    //.navbar-toggler-icon {
+      // Estilos adicionales para el icono del botón de alternancia (opcional)
+    //}
+  }
+  

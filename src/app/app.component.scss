@@ -1,22 +1,17 @@
-.menu{
-    background-color: rgb(17, 179, 238);
-    position: absolute;
+.menu {
+    background-color: rgb(62, 172, 255);
     height: 10%;
     width: 100%;
+    position: fixed;
     top: 0;
-}
-
-.body{
-    position: absolute;
+  }
+  
+  .body {
+    background-color: rgba(56, 192, 255, 0.399);
     height: 80%;
     width: 100%;
-    top: 10%;
-}
-
-.footer{
-    background-color: cadetblue;
     position: absolute;
-    height: 10%;
-    width: 100%;
-    bottom: 0px;
-}
+    top: 10%;
+  }
+
+  

@@ -26,19 +26,35 @@ export class tipomascotaService {
     return this.http.get<any>(this.url, this.obtenerOptions(access_token));
   }
 
-  addtipoMascota(mascota:tipomascota):Observable<any>{
-    return this.http.post(this.url, mascota);
+  
+
+  /*addtipoMascota(mascota:tipomascota, access_token:any ):Observable<any>{
+    return this.http.post(this.url, mascota, this.obtenerOptions(access_token));
+  }*/
+
+  addtipoMascota(access_token:any, tipomascota:tipomascota):Observable<any>{
+    const options = this.obtenerOptions(access_token);
+    return this.http.post(this.url, tipomascota, options);
   }
 
-  gettipoMascota(id:string, ):Observable<any>{
-    return this.http.get(this.url+id);
+
+
+  gettipoMascota(access_token:any, id:string ):Observable<any>{
+    const options = this.obtenerOptions(access_token);
+    return this.http.get(this.url+id, options);
   }
 
-  updatetipoMascota(id:string, mascota:tipomascota): Observable<any>{
-    return this.http.put(this.url+id, mascota);
+
+
+  updatetipoMascota(access_token:any, id:string, mascota:tipomascota): Observable<any>{
+    const options = this.obtenerOptions(access_token);
+    return this.http.put(this.url+id, mascota, options);
   }
 
-  deletetipoMascota(id:string): Observable<any>{
-    return this.http.delete(this.url+id);
+
+
+  deletetipoMascota(access_token:any, id:string): Observable<any>{
+    const options = this.obtenerOptions(access_token);
+    return this.http.delete(this.url+id, options);
   }
 }

@@ -1,0 +1,19 @@
+<div class="container">
+    <form [formGroup]="logroForm" (ngSubmit)="agregarLogro()" class="form-ficha example-form" id="formtipomascota">
+        <h1>Información del tipo de logro</h1>
+        <div class="form-group" id="tipologro-group">
+            <label for="tipoLogro">Tipo de logro:</label>
+            <input formControlName="tipoLogro" type="text" name="tipoLogro" id="tipoLogro" class="form-control">
+        </div>
+        <div class="form-group" id="tiemposemanal-group">
+            <label for="tiempoSemanal">Tiempo semanal:</label>
+            <input formControlName="tiempoSemanal" type="text" name="tiempoSemanal" id="tiempoSemanal" class="form-control">
+        </div>
+        <div class="form-group" id="dias-group">
+            <label for="dias">Días:</label>
+            <input formControlName="dias" type="text" name="dias" id="dias" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
+</div>
+

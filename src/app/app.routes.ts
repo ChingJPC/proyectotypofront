@@ -4,6 +4,13 @@ import { IndexComponent as IndexUsuario } from './usuarios/index/index.component
 import { IndexComponent as IndexRol } from './roles/index/index.component';
 import { IndexComponent as IndexMascota } from './mascota/index/index.component';
 import { CreateComponent as CreateMascota } from './mascota/create/create.component';
+import { IndexComponent as IndexTipomascota } from './tipomascota/index/index.component';
+import { CreateComponent as CreateTipomascota } from './tipomascota/create/create.component';
+import { IndexComponent as Indexlogros } from './logros/index/index.component';
+import { CreateComponent as Createlogros} from './logros/create/create.component';
+
+
+
 
 
 export const routes: Routes = [
@@ -17,6 +24,20 @@ export const routes: Routes = [
     { path: 'rol/index', component: IndexRol},
 
     {path: 'mascota/index/:id', component:IndexMascota},
+
+    { path: 'tipomascota/index', component: IndexTipomascota },
+    { path: 'tipomascota/index/:id', component: IndexTipomascota },
+    { path: 'tipomascota/editar/:id', component: CreateTipomascota },
+   { path: 'tipomascota/create', component: CreateTipomascota },
+
+
+   { path: 'logros/index', component: Indexlogros },
+   { path: 'logros/index/:id', component: Indexlogros },
+   { path: 'logros/editar/:id', component: Createlogros },
+  { path: 'logros/create', component: Createlogros },
+
+
+
 
     {path: 'mascota/create/:user_id', component: CreateMascota},
 

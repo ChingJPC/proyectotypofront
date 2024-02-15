@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { LoginService } from '../../servicios/login.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
   providers: [LoginService],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'

@@ -13,12 +13,16 @@ import { CommonModule } from '@angular/common';
 })
 export class MenuComponent {
 
+  
   access_token: string | null = null;
 
   constructor(private authService: LoginService, private router: Router) {}
 
-  ngOnInit(){
-    this.getAccess_token();
+  ngOnInit():void{
+    if(this.access_token == null){
+      this.access_token=localStorage.getItem('access_token');
+    }
+    
   }
 
   getAccess_token(): void {

@@ -3,14 +3,15 @@ import { Usuario } from '../../modelos/usuarios.model';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../servicios/usuarios.service';
 import { CommonModule } from '@angular/common';
+import { NavigationComponent } from "../../navigation/navigation.component";
 
 @Component({
-  selector: 'app-index',
-  standalone: true,
-  imports: [CommonModule],
-  providers: [UsuarioService],
-  templateUrl: './index.component.html',
-  styleUrl: './index.component.scss'
+    selector: 'app-index',
+    standalone: true,
+    providers: [UsuarioService],
+    templateUrl: './index.component.html',
+    styleUrl: './index.component.scss',
+    imports: [CommonModule, NavigationComponent]
 })
 export class IndexComponent {
   listaUsuarios : Usuario[] = [];

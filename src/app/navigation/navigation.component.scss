@@ -1,0 +1,33 @@
+// Estilos para el contenedor del sidenav
+.sidenav-container {
+  height: 100%;
+}
+
+// Estilos para el sidenav
+.sidenav {
+  width: 200px;
+}
+
+// Estilos para el contenido del sidenav
+.mat-sidenav-content {
+  padding: 20px;
+  height: calc(100vh - 64px); // Resta el alto del toolbar
+  overflow: auto; // Agrega scroll si es necesario
+}
+
+// Estilos para el toolbar
+.mat-toolbar {
+  background-color: #1976d2; // Color de fondo azul
+  color: white; // Texto blanco
+}
+
+// Estilos para los enlaces en el sidenav
+.mat-nav-list a {
+  text-decoration: none; // Sin subrayado
+  color: #333; // Color del texto
+}
+
+// Estilos para los enlaces activos en el sidenav
+.mat-nav-list a.active {
+  font-weight: bold; // Texto en negrita
+}

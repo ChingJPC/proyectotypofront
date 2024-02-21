@@ -39,4 +39,7 @@ export class UsuarioService {
     return this.http.delete(this.url+id, this.obtenerOptions(access_token));
   }
   
+  getUserCount(access_token: any): Observable<any> {
+    return this.http.get(this.url + 'count', this.obtenerOptions(access_token));
+  }
 }

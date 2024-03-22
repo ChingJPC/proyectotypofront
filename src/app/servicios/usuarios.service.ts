@@ -8,7 +8,7 @@ import { Usuario } from '../modelos/usuarios.model';
 })
 export class UsuarioService {
 
-  url = 'http://127.0.0.1:8000/api/auth/Usuario/';
+  url = 'https://typo.api.adsocidm.com/api/auth/Usuario';
   
   obtenerOptions(access_token:any):Object{
     const headers = new HttpHeaders({
@@ -33,11 +33,11 @@ export class UsuarioService {
 
 
   updateUsuario(usuario:Usuario, id:string, access_token:any): Observable<any>{
-    return this.http.put(this.url+id, usuario, this.obtenerOptions(access_token));
+    return this.http.put(this.url+"/"+id, usuario, this.obtenerOptions(access_token));
   }
   
   deleteUsuario(id:string, access_token:any):Observable<any>{
-    return this.http.delete(this.url+id, this.obtenerOptions(access_token));
+    return this.http.delete(this.url+"/"+id, this.obtenerOptions(access_token));
   }
   
 }

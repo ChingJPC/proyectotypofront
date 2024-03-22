@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class ActividadService {
 
 
-  private apiUrl = 'http://127.0.0.1:8000/api'; // URL base de tu API Laravel
+  private apiUrl = 'https://typo.api.adsocidm.com/api'; // URL base de tu API Laravel
 
   constructor(private http:HttpClient) {}
 

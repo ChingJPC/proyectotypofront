@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class LogrosService {
 
-  url='http://127.0.0.1:8000/api/auth/logros/';
+  url='https://typo.api.adsocidm.com/api/auth/logros';
   constructor(private http:HttpClient){
 
   }
@@ -35,17 +35,17 @@ export class LogrosService {
 
   getlogro(access_token:any, id:string ):Observable<any>{
     const options = this.obtenerOptions(access_token);
-    return this.http.get(this.url+id, options);
+    return this.http.get(this.url+"/"+id, options);
   }
 
   updatelogro(access_token:any, id:string, logro:Logros): Observable<any>{
     const options = this.obtenerOptions(access_token);
-    return this.http.put(this.url+id, logro, options);
+    return this.http.put(this.url+"/"+id, logro, options);
   }
 
   deletelogro(access_token:any, id:string): Observable<any>{
     const options = this.obtenerOptions(access_token);
-    return this.http.delete(this.url+id, options);
+    return this.http.delete(this.url+"/"+id, options);
   }
 
 

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class mascotaService {
 
-  url='http://127.0.0.1:8000/api/auth/Informacion/';
+  url='https://typo.api.adsocidm.com/api/auth/Informacion';
   constructor(private http:HttpClient){
   }
 
@@ -33,18 +33,18 @@ export class mascotaService {
   }
 
   getMascota(id:string, access_token:any):Observable<any>{
-    return this.http.get(this.url+id, this.obtenerOptions(access_token));
+    return this.http.get(this.url+"/"+id, this.obtenerOptions(access_token));
   }
 
   updateMascota(id:string, mascota:Mascota, access_token:any): Observable<any>{
-    return this.http.put(this.url+id, mascota, this.obtenerOptions(access_token));
+    return this.http.put(this.url+"/"+id, mascota, this.obtenerOptions(access_token));
   }
 
   deleteMascota(id:string, access_token:any): Observable<any>{
-    return this.http.delete(this.url+id, this.obtenerOptions(access_token));
+    return this.http.delete(this.url+"/"+id, this.obtenerOptions(access_token));
   }
 
   getMascotasByUserId(id:any, access_token:any) : Observable<any> {
-    return this.http.get(this.url+"user/"+id, this.obtenerOptions(access_token));
+    return this.http.get(this.url+"/user/"+id, this.obtenerOptions(access_token));
   }
 }

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AgendamientoService {
 
-  url='http://127.0.0.1:8000/api/auth/Agendamiento';
+  url='https://typo.api.adsocidm.com/api/auth/Agendamiento';
   constructor(private http:HttpClient) {  
   }
   obtenerOptions(access_token:any):Object{
@@ -27,7 +27,7 @@ export class AgendamientoService {
 
   getagendamiento(access_token:any, id:string ):Observable<any>{
     const options = this.obtenerOptions(access_token);
-    return this.http.get(this.url+id, options);
+    return this.http.get(this.url+"/"+id, options);
   }
 
 

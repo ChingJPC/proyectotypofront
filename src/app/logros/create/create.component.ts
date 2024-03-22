@@ -24,7 +24,7 @@ export class CreateComponent {
   logroForm = this.fb.group({
     tipoLogro:'',
     tiempoSemanal:'',
-    dias:''
+    //dias:''
     
   })
 
@@ -55,11 +55,11 @@ export class CreateComponent {
     if (this.id != null) {
       this.logrosSevice.getlogro(this.clave,this.id).subscribe(
         data => {
+          console.log(data);
           this.logroForm.setValue({
             tipoLogro: data.tipoLogro,
             tiempoSemanal: data.tiempoSemanal,
-            dias: data.dias
-          
+            //dias: data.Dias
           })
         },
         err => {
@@ -76,16 +76,16 @@ export class CreateComponent {
     const tiempoSemanalString: string = typeof tiempoSemanalValue === 'string' ? tiempoSemanalValue : '';
 
     // Obtener el valor de días
-    const diasString: string | null | undefined = this.logroForm.get('dias')?.value;
+   // const diasString: string | null | undefined = this.logroForm.get('dias')?.value;
 
-    // Crear el objeto Logros
+  
     const logro: Logros = {
         tipoLogro: this.logroForm.get('tipoLogro')?.value,
         tiempoSemanal: tiempoSemanalString, // Asignar la cadena de tiempo directamente
-        dias: diasString ? parseInt(diasString, 10) : null // Convertir la cadena de días a un número entero o asignar null si no hay valor
+       // dias: diasString ? parseInt(diasString, 10) : null // Convertir la cadena de días a un número entero o asignar null si no hay valor
     };
 
-    // Verificar si se va a actualizar o agregar un logro
+   
     if (this.id != null) {
         this.logrosSevice.updatelogro(this.clave, this.id, logro).subscribe(
             data => {

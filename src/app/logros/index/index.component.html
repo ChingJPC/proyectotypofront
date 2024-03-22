@@ -4,8 +4,7 @@
         <tr>
           <th>ID</th>
           <th>Tipo de logro</th>
-          <th>Tiempo semanal</th>
-          <th>Dias</th>  
+          <th>Tiempo semanal</th> 
           <th>Acciones</th>
         </tr>
       </thead>
@@ -14,10 +13,10 @@
           <td>{{ logro.id }}</td>
           <td>{{ logro.tipoLogro }}</td>
           <td>{{ logro.tiempoSemanal }}</td>
-          <td>{{ logro.dias }}</td>
           <td>
-            <button type="button" class="btn btn-danger mr-2" (click)="eliminarLogros(logro.id)">Eliminar</button>
             <button type="button" class="btn btn-primary" (click)="editarLogros(logro.id)">Editar</button>
+            <button type="button" class="btn btn-danger mr-2" (click)="eliminarLogros(logro.id)">Eliminar</button>
+
           </td>
         </tr>
       </tbody>

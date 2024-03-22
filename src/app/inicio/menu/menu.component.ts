@@ -29,7 +29,8 @@ export class MenuComponent {
   logout() {
     this.authService.logout(localStorage.getItem('access_token')).subscribe(
       () => {
-        this.router.navigate(['/']);
+        window.location.reload();
+        //this.router.navigate(['/']);
       },
       (error) => {
         console.error('Error during logout:', error);
